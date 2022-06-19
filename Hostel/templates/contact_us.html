@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %} Contact {% endblock title %}
+{% block body %} 
+<style>
+  body {
+background-image: url('/static/image/10.jpg');
+}
+</style>
+
+<div class="alert alert-success" role="alert">
+  {% for message in messages %}
+  <h5>{{message}}</h5>
+  {% endfor %}
+</div>
+
+<div class="container-fluid py-4  px-0 mb-3">
+    <div class ="container mb-3 py-4 ">
+    <h1 class="text-center">Contact Us</h1>
+<form method ="post" action ="/contact_us">
+{% csrf_token %}
+  <div class="mb-3 px-4">
+  <label for="name" class="form-label">Name</label>
+  <input type="name" class="form-control" id="name" name="name" placeholder="Enter your name">
+</div>
+  <div class="mb-3 px-4">
+  <label for="phone" class="form-label">Phone no.</label>
+  <input type="phone" class="form-control" id="phone" name="phone" placeholder="Enter your Phone no.">
+</div>
+<div class="mb-3 px-4">
+  <label for="email" class="form-label">Email address</label>
+  <input type="email" class="form-control" id="email" name="email"  placeholder="name@example.com">
+</div>
+<div class="mb-3 px-4">
+  <label for="desc" class="form-desc">Tell me what you want to contact me for</label>
+  <textarea class="form-control" id="desc" rows="3" name="desc"></textarea>
+</div>
+</div>
+<div class ="text-center">
+<button  class="btn btn-dark" type="submit">Submit</button>
+</form>
+</div>
+</div>
+
+
+
+<div class="container">
+  <footer class="py-3 my-4 px-4">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Home</a></li>
+      <li class="nav-item"><a href="/meal" class="nav-link px-2 text-muted">Meal</a></li>
+      
+      <li class="nav-item"><a href="https://www.klyuniv.ac.in/" class="nav-link px-2 text-muted">University portal</a>
+      </li>
+      <li class="nav-item"><a href="/contact_us" class="nav-link px-2 text-muted">FAQs</a></li>
+      <li class="nav-item"><a href="/info" class="nav-link px-2 text-muted">Project Info</a></li>
+    </ul>
+    <p class="text-center text-muted">© 2022 KU Hostel, Inc</p>
+  </footer>
+</div>
+{% endblock body %}
